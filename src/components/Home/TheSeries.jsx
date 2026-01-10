@@ -2,6 +2,7 @@ import { TheSeriesBooks } from '../../constants/';
 import { ArrowRight, X, BookOpen } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { motion } from "framer-motion";
 
 const TheSeries = () => {
     const [selectedBook, setSelectedBook] = useState(null);
@@ -16,13 +17,15 @@ const TheSeries = () => {
                 Follow Skulduggery Pleasant and Valkyrie Cain in their adventures.
             </p>
 
-            <div className="mt-10 space-y-12">
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1 }}
+            >
+            <div className="mt-10 space-y-12" id="books">
                 {TheSeriesBooks.slice(0, 1).map((series, index) => (
                     <div key={index} className="text-center">
-                    
-                    <h3 className="text-2xl md:text-3xl font-semibold mb-6">
-                        {series.trilogy}
-                    </h3>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
                         {series.books.map((book, bookIndex) => (
@@ -39,6 +42,7 @@ const TheSeries = () => {
             </div>
         ))}
         </div>
+        </motion.div>
 
 
             <div className="mt-5">
@@ -53,7 +57,7 @@ const TheSeries = () => {
                     <div className="absolute inset-0 bg-black/70" onClick={() => setSelectedBook(null)}/>
 
                     <div className="relative bg-slate-900 rounded-lg  w-[90vw] max-w-xl sm:max-w-2xl max-h-[90vh] overflow-y-auto z-10">
-                        <X className="absolute top-3 right-3 text-white hover:text-neutral-400" onClick={() => setSelectedBook(null)}/>
+                        <X className="absolute top-3 right-3 text-white bg-amber-500 hover:bg-amber-600 active:scale-95 rounded-xl" onClick={() => setSelectedBook(null)}/>
                         <div className="flex flex-col sm:flex-row"> 
                             <img src={selectedBook.image} alt={selectedBook.title} className="w-full sm:w-48 rounded-md object-cover"/>
                             <div className="flex flex-col justify-center p-5">

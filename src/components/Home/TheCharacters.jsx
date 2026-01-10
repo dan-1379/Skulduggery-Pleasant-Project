@@ -3,6 +3,7 @@ import { X, UserRound, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CharacterCard from './CharacterCard';
 import { useState } from 'react';
+import { motion } from "framer-motion";
 
 const TheCharacters = () => {
     const [selectedCharacter, setSelectedCharacter] = useState(null);
@@ -18,11 +19,18 @@ const TheCharacters = () => {
                 Follow Skulduggery Pleasant and Valkyrie Cain in their adventures.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 justify-items-center">
-                {TheSeriesCharacters.slice(0, 3).map((item, index) => (
-                    <CharacterCard key={index} character={item} onClick={() => setSelectedCharacter(item)}/>
-                ))}
-            </div>
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1 }}
+            >
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 justify-items-center">
+                    {TheSeriesCharacters.slice(0, 3).map((item, index) => (
+                        <CharacterCard key={index} character={item} onClick={() => setSelectedCharacter(item)}/>
+                    ))}
+                </div>
+            </motion.div>
 
             <div className="mt-5">
                 <Link to="/characters" className="group flex gap-2 justify-center text-amber-500">
@@ -35,7 +43,7 @@ const TheCharacters = () => {
                 <div className="fixed inset-0 z-50 flex items-center justify-center">
                     <div className="absolute inset-0 bg-black/70" onClick={() => setSelectedCharacter(null)}/>
 
-                    <div className="relative bg-slate-900 rounded-lg max-w-lg w-full z-10">
+                    <div className="relative bg-slate-900 rounded-lg max-w-md w-90 z-10">
                         <X className="absolute top-3 right-3 text-white hover:text-neutral-400" onClick={() => setSelectedCharacter(null)}/>
                         <img src={selectedCharacter.image} alt={selectedCharacter.name} className="rounded-md mb-4"/>
                         <h3 className="text-2xl mb-2">{selectedCharacter.name}</h3>

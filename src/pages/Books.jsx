@@ -1,6 +1,8 @@
 import { BookOpen, X } from 'lucide-react';
 import { TheSeriesBooks } from '../constants';
 import { useState } from 'react';
+import { motion } from "framer-motion";
+
 
 const Books = () => {
     const [selectedBook, setSelectedBook] = useState(null);
@@ -15,28 +17,35 @@ const Books = () => {
                 Follow Skulduggery Pleasant and Valkyrie Cain in their adventures.
             </p>
 
-            <div className="mt-10 space-y-12">
-                {TheSeriesBooks.map((series, index) => (
-                    <div key={index} className="text-center">
-                        <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-amber-500">
-                            {series.trilogy}
-                        </h3>
+                <div className="mt-10 space-y-12">
+                    {TheSeriesBooks.map((series, index) => (
+                        <div key={index} className="text-center">
+                            <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-amber-500">
+                                {series.trilogy}
+                            </h3>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
-                            {series.books.map((book, bookIndex) => (
-                                <div key={bookIndex}>
-                                    <img
-                                    src={book.image}
-                                    alt={book.text}
-                                    className="w-150 rounded-lg hover:scale-101 transition"
-                                    onClick={() => setSelectedBook(book)}
-                                    />
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 1 }}
+                            >
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
+                                    {series.books.map((book, bookIndex) => (
+                                        <div key={bookIndex}>
+                                            <img
+                                            src={book.image}
+                                            alt={book.text}
+                                            className="w-150 rounded-lg hover:scale-101 transition"
+                                            onClick={() => setSelectedBook(book)}
+                                            />
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
+                            </motion.div>
                         </div>
-                    </div>
-                ))}
-            </div>
+                    ))}
+                </div>
 
             {selectedBook && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center">

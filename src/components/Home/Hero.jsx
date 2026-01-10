@@ -6,15 +6,14 @@ const Hero = () => {
 
             <div className="relative z-10">
                 <h2 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl">Skulduggery Pleasant</h2>
-
                 <p className="mt-5 mb-4 text-xl sm:text-2xl md:text-3xl lg:text-5xl text-neutral-400">
                     Dive into the magical world of sorcerers, monsters, 
                     and the wittiest skeleton you’ll ever meet.
                 </p>
-
-                <button className="w-full mt-5 md:w-50 text-xl sm:text-2xl md:text-3xl bg-amber-500 p-3 rounded-md hover:bg-amber-600 transition 
-                                active:scale-95">
-                    Learn more
+                <button className="w-full mt-5 md:w-50 text-md sm:text-xl md:text-2xl bg-amber-500 p-3 rounded-md hover:bg-amber-600 transition active:scale-95">
+                    <a href="#books">
+                        Learn more
+                    </a>
                 </button>
             </div>
         </div>

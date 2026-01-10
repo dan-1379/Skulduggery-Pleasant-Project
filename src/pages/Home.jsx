@@ -4,6 +4,7 @@ import TheSeries from '../components/Home/TheSeries'
 import TheCharacters from '../components/Home/TheCharacters'
 
 const Home = () => {
+
     return (
         <>
             <Hero />
@@ -11,7 +12,7 @@ const Home = () => {
             <TheSeries />
             <TheCharacters />
         </>
-    );
+    );z
 }
 
 export default Home

@@ -140,11 +140,11 @@ export const TheSeriesBooks = [
 
 
 export const TheSeriesCharacters = [
-    {image: Skulduggery_Pleasant, name: "Skulduggery Pleasant", power: "Elemental & Necromancer", species: "Human", age: "444"},
-    {image: Valkyrie_Cain, name: "Valkyrie Cain", power: "White Lightning | Sensitive", species: "Human", age: "30"},
-    {image: China_Sorrows, name: "China Sorrows", power: "Signum Linguist", species: "Human", age: "443"},
-    {image: Ghastly_Bespoke, name: "Ghastly Bespoke", power: "Elemental", species: "Human", age: "400+"},
-    {image: Tanith_Low, name: "Tanith Low", power: "Adept", species: "Human", age: "106"},
-    {image: Omen_Darkly, name: "Omen Darkly", power: "Elemental | Adept", species: "Human", age: "21"},
-    {image: Mevolent, name: "Mevolent", power: "Elemental", species: "Human", age: "Unknown"},
+    {image: Skulduggery_Pleasant, name: "Skulduggery Pleasant", power: "Elemental", species: "Human", age: "444", hero: true},
+    {image: Valkyrie_Cain, name: "Valkyrie Cain", power: "White Lightning | Sensitive", species: "Human", age: "30", hero: true},
+    {image: China_Sorrows, name: "China Sorrows", power: "Signum Linguist", species: "Human", age: "443", hero: true},
+    {image: Ghastly_Bespoke, name: "Ghastly Bespoke", power: "Elemental", species: "Human", age: "400+", hero: true},
+    {image: Tanith_Low, name: "Tanith Low", power: "Adept", species: "Human", age: "106", hero: true},
+    {image: Omen_Darkly, name: "Omen Darkly", power: "Elemental | Adept", species: "Human", age: "21", hero: true},
+    {image: Mevolent, name: "Mevolent", power: "Elemental", species: "Human", age: "Unknown", hero: false},
 ];
